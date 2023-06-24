@@ -84,7 +84,6 @@ export const useAuthStore = defineStore("authStore", () => {
           name,
         },
       ]);
-      console.log(data, error);
     } catch (error) {
       console.log(error);
     }
@@ -93,7 +92,6 @@ export const useAuthStore = defineStore("authStore", () => {
   async function getAuthUser() {
     try {
       const { data } = await supabase.auth.getUser();
-      console.log(data);
       user.value = data.user;
     } catch (err) {
       console.log(err);

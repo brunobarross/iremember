@@ -43,6 +43,9 @@ watch(
     () => todoList.value,
     (v) => {
         todoFiltrados.value = todoList.value
+    },
+    {
+        immediate: true
     }
 
 )

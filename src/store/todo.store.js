@@ -16,10 +16,7 @@ export const useTodoStore = defineStore("todo", () => {
         .from("todos")
         .select("*")
         .eq("id_usuario", idUserActual);
-      console.log(data, error);
-
       if (error) return console.log(error);
-
       await setTodos(data);
     } catch (error) {
       console.log(error);
@@ -33,6 +30,7 @@ export const useTodoStore = defineStore("todo", () => {
   }
 
   const createTodo = async (text, id) => {
+    if (!text) return console.log("Preencha o campo");
     try {
       const { data, error } = await supabase
         .from("todos")
@@ -83,6 +81,6 @@ export const useTodoStore = defineStore("todo", () => {
     removeTodo,
     markTodoAsDone,
     removerCompleted,
-    isLoading
+    isLoading,
   };
 });
