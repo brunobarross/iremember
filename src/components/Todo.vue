@@ -1,7 +1,7 @@
 <template>
     <div class="todo">
         <div class="container-personalizado">
-            <div class="todo-wrapper dark:bg-very-dark-desaturated-blue">
+            <div class="todo-wrapper bg-very-dark-desaturated-blue">
                 <TodoItem v-for="item in todoFiltrados" :key="item.id" :todo="item" @remover-todo="handleClickRemove"
                     @action-todo="handleClickTodo" />
                 <TodoFooter :todoList="todoFiltrados"  @filter-todo="handleClickFilter" @clear-completed="handleClickClearCompleted" />

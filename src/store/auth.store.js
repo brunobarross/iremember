@@ -7,6 +7,9 @@ export const useAuthStore = defineStore("authStore", () => {
   const router = useRouter();
   const user = ref(null);
   const session = ref(null);
+  const isLoading = ref(false);
+
+  const errorText = ref(null);
 
   async function logout() {
     const { error } = await supabase.auth.signOut();
@@ -16,33 +19,59 @@ export const useAuthStore = defineStore("authStore", () => {
   }
 
   async function submitFormLogin(email, senha) {
+    if (!email || !senha) {
+      errorText.value = "Preencha todos os campos";
+      return;
+    }
     try {
+      isLoading.value = true;
       const { data, error } = await supabase.auth.signInWithPassword({
         email: email,
         password: senha,
       });
-      if (data.user) {
-        user.value = data;
-        router.push("/");
+
+      if (error) {
+        errorText.value = error.message;
+        return;
       }
+
+      user.value = data;
+      errorText.value = null;
+      router.push("/");
     } catch (error) {
       console.log(error);
+    }
+    finally{
+      isLoading.value = false;
     }
   }
 
   async function submitFormRegister(nome, email, senha) {
-    
+    if (!email || !senha || !nome) {
+      errorText.value = "Preencha todos os campos";
+      return;
+    }
     try {
+      isLoading.value = true;
       const { data, error } = await supabase.auth.signUp({
         email: email,
         password: senha,
       });
-      if (!data) return;
-      await saveUserOnBd({ uuid: data.user?.id, email: data.user.email,name:nome });
+      if (error) {
+        errorText.value = error.message;
+        return;
+      }
+      await saveUserOnBd({
+        uuid: data.user?.id,
+        email: data.user.email,
+        name: nome,
+      });
+      errorText.value = null;
       router.push("/login");
-
     } catch (error) {
       console.log(error);
+    } finally{
+      isLoading.value = false;
     }
   }
 
@@ -52,7 +81,7 @@ export const useAuthStore = defineStore("authStore", () => {
         {
           uuid,
           email,
-          name
+          name,
         },
       ]);
       console.log(data, error);
@@ -77,8 +106,6 @@ export const useAuthStore = defineStore("authStore", () => {
     session.value = data.session;
   }
 
-
-
   return {
     user,
     session,
@@ -88,5 +115,7 @@ export const useAuthStore = defineStore("authStore", () => {
     getAuthUser,
     getAuthSession,
     logout,
+    errorText,
+    isLoading
   };
 });

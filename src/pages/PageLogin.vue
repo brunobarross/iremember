@@ -1,21 +1,25 @@
 <template>
   <main class="page-login">
     <div class=" max-w-[400px] mx-auto w-full px-8 py-12">
-      <h1 class="dark:text-light-grayish-blue font-bold text-2xl md:text-5xl -tracking-tighter text-center">IRemember</h1>
-      <form @submit.prevent="handleSubmit" class="mt-8 md:mt-16">
+      <h1 class="text-white font-bold text-2xl md:text-5xl -tracking-tighter text-center">IRemember</h1>
+      <form @submit.prevent="handleSubmit" class="mt-8 md:mt-12">
         <div class="input-box">
-          <input class="dark:bg-light-grayish-blue-hover dark:text-very-dark-grayish-blue" type="email" placeholder="Seu e-mail" v-model="email" />
+          <input class="bg-white text-very-dark-grayish-blue" type="email" placeholder="Seu e-mail" v-model="email" />
         </div>
         <div class="input-box">
-          <input class="dark:bg-light-grayish-blue-hover dark:text-very-dark-grayish-blue" type="password" placeholder="Sua senha" v-model="senha" />
+          <input class="bg-white text-very-dark-grayish-blue" type="password" placeholder="Sua senha" v-model="senha" />
         </div>
-        <button class="btn w-full dark:text-light-grayish-blue-hover" type="submit">
+        <div class="btn-container">
+        <p class="text-red-500 text-sm">{{errorText}}</p>
+          <button class="btn w-full text-white-hover mt-2" type="submit">
           Login
         </button>
+        </div>
+   
       </form>
-      <p class="mt-4 dark:text-light-grayish-blue">
+      <p class="mt-4 text-white">
         Não tem uma conta?
-        <router-link to="/register" class="dark:text-light-grayish-blue-hover">Cadastre-se</router-link>
+        <router-link to="/register" class="text-light-grayish-blue-hover">Cadastre-se</router-link>
       </p>
     </div>
   </main>
@@ -33,6 +37,8 @@ const senha = ref("");
 
 const { submitFormLogin } = useAuthStore();
 
+const {errorText} = storeToRefs(useAuthStore())
+
 function handleSubmit() {
   submitFormLogin(email.value, senha.value);
 }
@@ -48,13 +54,13 @@ function handleSubmit() {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: calc(100vh - 64px);
+  height: 100vh;
 }
 
 .input-box {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 
   input {
     padding: 0.75rem;

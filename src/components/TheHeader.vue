@@ -5,19 +5,33 @@
         </picture>
         <div class="container-personalizado z-[2]">
             <div class="flex items-center justify-between">
-                <h1 class="dark:text-light-grayish-blue font-bold text-2xl md:text-5xl -tracking-tighter">IRemember</h1>
+                <h1 class="text-light-grayish-blue font-bold text-2xl md:text-5xl -tracking-tighter">IRemember</h1>
                 <div class="flex items-center" v-if="usuarioLogado">
-                    <p class="dark:text-light-grayish-blue text-sm">Bem vindo, {{ usuarioLogado.name }}</p>
+                    <p class="text-light-grayish-blue text-sm">Bem vindo, {{ usuarioLogado.name }}</p>
                     <button class=" p-2 logout-button transition-all" @click="handleClickLogout">
-                        <PhSignOut class="dark:text-light-grayish-blue" />
+                        <PhSignOut class="text-light-grayish-blue" />
                     </button>
                 </div>
 
+
             </div>
-            <div class="input-box mt-8 dark:bg-very-dark-desaturated-blue p-4 h-14 overflow-hidden rounded">
+            <div class="flex justify-between mt-4">
+                <p class="text-light-grayish-blue text-sm">Desenvolvido por Altamiro Bruno.</p>
+                <div class="flex items-center">
+                    <a href="https://www.linkedin.com/in/altamirobruno/" target="_blank">
+                        <PhLinkedinLogo size="24" class="text-white ml-2" />
+                    </a>
+                   <a href="https://github.com/brunobarross" target="_blank">
+                    <PhGithubLogo size="24" class="text-white ml-2" />
+                   </a>
+                   
+                </div>
+
+            </div>
+            <div class="input-box mt-8 bg-very-dark-desaturated-blue p-4 h-14 overflow-hidden rounded">
                 <div class="flex items-center">
                     <button
-                        class="send-button rounded-full w-6 h-6 mr-4 grid place-items-center border dark:border-very-dark-grayish-blue transition-all"
+                        class="send-button rounded-full w-6 h-6 mr-4 grid place-items-center border border-very-dark-grayish-blue transition-all"
                         @click="handleClickCreate">
                         <img src="../assets/img/icon-check.svg" />
                     </button>
@@ -39,7 +53,7 @@ import { ref, inject } from 'vue'
 import { storeToRefs } from 'pinia'
 import TheInput from './TheInput.vue';
 import { useTodoStore } from '../store/todo.store';
-import { PhSignOut } from "@phosphor-icons/vue";
+import { PhSignOut , PhGithubLogo, PhLinkedinLogo} from "@phosphor-icons/vue";
 import { useAuthStore } from '../store/auth.store';
 
 const usuarioLogado = inject('usuarioLogado')

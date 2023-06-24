@@ -7,17 +7,25 @@ import { supabase } from "../lib/supabaseClient";
 
 export const useTodoStore = defineStore("todo", () => {
   const todoList = ref([]);
+  const isLoading = ref(false);
 
   const getTodos = async (idUserActual) => {
-    const { data, error } = await supabase
-      .from("todos")
-      .select("*")
-      .eq("id_usuario", idUserActual);
-    console.log(data, error);
+    try {
+      isLoading.value = true;
+      const { data, error } = await supabase
+        .from("todos")
+        .select("*")
+        .eq("id_usuario", idUserActual);
+      console.log(data, error);
 
-    if (error) return console.log(error);
+      if (error) return console.log(error);
 
-    await setTodos(data);
+      await setTodos(data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      isLoading.value = false;
+    }
   };
 
   async function setTodos(data) {
@@ -75,5 +83,6 @@ export const useTodoStore = defineStore("todo", () => {
     removeTodo,
     markTodoAsDone,
     removerCompleted,
+    isLoading
   };
 });

@@ -1,5 +1,5 @@
 <template>
-    <input class="dark:bg-very-dark-desaturated-blue h-full dark:text-light-grayish-blue " type="text"
+    <input class="bg-very-dark-desaturated-blue h-full text-light-grayish-blue " type="text"
         placeholder="Digite sua tarefa" :model-value="text" @input="$emit('update:text', $event.target.value)" />
 </template>
 
