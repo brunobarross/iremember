@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer base{
+    body{
+        @apply bg-very-dark-blue;
+        font-family: 'Josefin Sans', sans-serif;
+    }
+}
+
+
+@layer components{
+    .btn{
+        @apply flex justify-center items-center text-white font-bold rounded py-3 px-8 text-sm transition-all ;
+        background-color: rgba(113,26,120, 1);
+    }
+
+    .btn:hover{
+        background-color: rgba(113,26,120, 0.8);
+    }
+}

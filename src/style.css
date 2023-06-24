@@ -1,0 +1,16 @@
+body,h1,h2,h3,h4{
+  margin: 0;
+  padding: 0;
+}
+
+
+.container-personalizado{
+  max-width: 600px;
+  margin: auto;
+  width: 100%;
+  position: relative;
+  padding: 0 1.5rem;
+  @media (max-width: 768px){
+    padding: 0 1rem;
+  }
+}
