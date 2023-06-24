@@ -5,11 +5,11 @@
       <form @submit.prevent="handleSubmit" class="mt-8 md:mt-16">
         <div class="input-box">
           <input class="dark:bg-light-grayish-blue-hover dark:text-very-dark-grayish-blue" type="text" placeholder="Seu nome" v-model="nome" />
-          {{ nome }}
+
         </div>
         <div class="input-box">
           <input class="dark:bg-light-grayish-blue-hover dark:text-very-dark-grayish-blue" type="email" placeholder="Seu e-mail" v-model="email" />
-          {{ email }}
+
         </div>
         <div class="input-box">
           <input type="password" placeholder="Sua senha" v-model="senha" />
