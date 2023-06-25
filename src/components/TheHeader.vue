@@ -7,7 +7,7 @@
             <div class="flex items-center justify-between">
                 <h1 class="text-light-grayish-blue font-bold text-2xl md:text-5xl -tracking-tighter">IRemember</h1>
                 <div class="flex items-center" v-if="usuarioLogado">
-                    <p class="text-light-grayish-blue text-sm">Bem vindo, {{ usuarioLogado.name }}</p>
+                    <p class="text-light-grayish-blue text-xs md:text-sm">Bem vindo, {{ usuarioLogado.name }}</p>
                     <button class=" p-2 logout-button transition-all" @click="handleClickLogout">
                         <PhSignOut class="text-light-grayish-blue" />
                     </button>
@@ -16,7 +16,7 @@
 
             </div>
             <div class="flex justify-between mt-4">
-                <p class="text-light-grayish-blue text-sm">Desenvolvido por Altamiro Bruno.</p>
+                <p class="text-light-grayish-blue text-xs md:text-sm">Desenvolvido por Altamiro Bruno.</p>
                 <div class="flex items-center">
                     <a href="https://www.linkedin.com/in/altamirobruno/" target="_blank">
                         <PhLinkedinLogo size="24" class="text-white ml-2" />

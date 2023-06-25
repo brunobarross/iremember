@@ -79,7 +79,7 @@ const handleClickFilter = (active) => {
 
 <style scoped>
 .todo {
-    margin-top: -128px;
+    margin-top: -5rem;
     position: relative;
     z-index: 2;
 
