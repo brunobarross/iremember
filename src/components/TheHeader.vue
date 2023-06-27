@@ -28,7 +28,8 @@
                 </div>
 
             </div>
-            <div class="input-box mt-8 bg-very-dark-desaturated-blue p-4 h-14 overflow-hidden rounded">
+            <form @submit.prevent="handleClickCreate">
+                <div class="input-box mt-8 bg-very-dark-desaturated-blue p-4 h-14 overflow-hidden rounded">
                 <div class="flex items-center">
                     <button
                         class="send-button rounded-full w-6 h-6 mr-4 grid place-items-center border border-very-dark-grayish-blue transition-all"
@@ -39,6 +40,8 @@
                 </div>
 
             </div>
+            </form>
+      
 
 
         </div>
