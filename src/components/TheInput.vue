@@ -1,19 +1,22 @@
 <template>
+   
     <input class="bg-very-dark-desaturated-blue h-full text-light-grayish-blue " type="text"
-        placeholder="Digite sua tarefa" :model-value="text" @input="$emit('update:text', $event.target.value)" />
+        placeholder="Digite sua tarefa" :value="text" @input="$emit('update:text', $event.target.value)"
+        />
 </template>
 
 
 <script setup>
 import { ref, defineProps, defineEmits } from 'vue'
+
+const emits = defineEmits(['update:text'])
+
 const props = defineProps({
     text: {
         type: String,
-        required: true
+        default: ''
     }
 })
-
-const emits = defineEmits(['update:text'])
 
 </script>
 
