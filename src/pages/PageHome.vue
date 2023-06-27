@@ -1,9 +1,9 @@
 <template>
-    <div v-if="!isLoading">
+    <div >
         <TheHeader/>
         <TodoVue/>
     </div>
-    <Loading v-else />
+    <Loading v-if="isLoading"/>
 </template>
 
 <script setup>
