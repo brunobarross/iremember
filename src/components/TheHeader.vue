@@ -35,7 +35,6 @@
                         @click="handleClickCreate">
                         <img src="../assets/img/icon-check.svg" />
                     </button>
-                    {{ text }}
                     <TheInput v-model:text="text"/>
                 </div>
 
