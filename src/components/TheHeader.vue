@@ -15,7 +15,7 @@
 
 
             </div>
-            <div class="flex justify-between mt-4">
+            <div class="flex items-center justify-between mt-4">
                 <p class="text-light-grayish-blue text-xs md:text-sm">Desenvolvido por Altamiro Bruno.</p>
                 <div class="flex items-center">
                     <a href="https://www.linkedin.com/in/altamirobruno/" target="_blank">
