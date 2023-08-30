@@ -23,7 +23,7 @@ Certifique-se de que você tenha as seguintes ferramentas instaladas em sua máq
 
 Siga esses passos para configurar e instalar as dependências do projeto:
 
-1. Clone este repositório: `git clone [https://github.com/brunobarross/games4free-next.git](https://github.com/brunobarross/iremember.git)`
+1. Clone este repositório: `git clone https://github.com/brunobarross/iremember.git`
 2. Navegue para o diretório do projeto: `cd iremember`
 3. Instale as dependências: `npm install`
 
