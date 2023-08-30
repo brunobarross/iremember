@@ -23,17 +23,17 @@ Certifique-se de que você tenha as seguintes ferramentas instaladas em sua máq
 
 Siga esses passos para configurar e instalar as dependências do projeto:
 
-1. Clone este repositório: `git clone https://github.com/brunobarross/games4free-next.git`
-2. Navegue para o diretório do projeto: `cd games4free-next`
+1. Clone este repositório: `git clone [https://github.com/brunobarross/games4free-next.git](https://github.com/brunobarross/iremember.git)`
+2. Navegue para o diretório do projeto: `cd iremember`
 3. Instale as dependências: `npm install`
 
 ## Como Rodar
 
 Para iniciar o servidor de desenvolvimento localmente, siga estas etapas:
 
-1. Navegue até o diretório do projeto, se você ainda não estiver lá: `cd seu-projeto`
+1. Navegue até o diretório do projeto, se você ainda não estiver lá: `cd iremember`
 2. Execute o comando para iniciar o servidor de desenvolvimento: `npm run dev`
-3. Abra o navegador e acesse: `http://localhost:3000`
+3. Abra o navegador e acesse: `http://localhost:5173`
 
 O servidor de desenvolvimento suporta hot-reloading, ou seja, as alterações feitas no código serão automaticamente refletidas no navegador.
 
